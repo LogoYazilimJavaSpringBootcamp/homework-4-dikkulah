@@ -1,4 +1,4 @@
-package org.dikkulah.repository;
+package org.dikkulah.repository.cheque;
 
 import org.dikkulah.model.Cheque;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 @Slf4j
 @Repository
-public class ChequeJdbc implements ChequeRepository {
+public class ChequeJdbcImp implements ChequeRepository {
 
 
 

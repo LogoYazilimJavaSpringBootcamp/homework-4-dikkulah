@@ -1,11 +1,16 @@
 package org.dikkulah.controller;
 
+import org.dikkulah.model.Product;
+import org.dikkulah.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/product")
 public class ProductController {
-  /*  @Autowired
+   @Autowired
     private ProductService productService;
 
     // Product kayıt etme
@@ -22,20 +27,20 @@ public class ProductController {
 
     //id ile arama
     @GetMapping(value = "/{id}")
-    public Product getProductById(@PathVariable Long id) {
+    public Product getProductById(@PathVariable Integer id) {
         return productService.getProductById(id);
     }
 
     //id ile bulup gönderilen body ile update etme
-    @PutMapping("/{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product request) {
-        return productService.updateProduct(id, request);
+    @PutMapping
+    public Product updateProduct(@RequestBody Product request) {
+        return productService.updateProduct(request);
     }
 
     // id ile silme
     @DeleteMapping(value = "/{id}")
-    public Boolean deleteProductById(@PathVariable Long id) {
-        return productService.deleteProductById(id);
+    public void deleteProductById(@PathVariable Integer id) {
+         productService.deleteProductById(id);
     }
 
     // aktif- pasif listeleme
@@ -44,6 +49,5 @@ public class ProductController {
         return productService.getProductByIsActive(Boolean.valueOf(isActive));
     }
 
-*/
 
 }

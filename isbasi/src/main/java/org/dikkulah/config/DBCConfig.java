@@ -1,7 +1,8 @@
 package org.dikkulah.config;
 
-import org.dikkulah.repository.ChequeJdbc;
-import org.dikkulah.repository.ChequeJdbcTemplate;
+import org.dikkulah.repository.cheque.ChequeHibernateImp;
+import org.dikkulah.repository.cheque.ChequeJdbcImp;
+import org.dikkulah.repository.cheque.ChequeJdbcTemplateImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,14 +10,17 @@ import org.springframework.context.annotation.Configuration;
 
 public class DBCConfig {
     @Bean(name = "chequeJdbc")
-    public ChequeJdbc getChequeJdbc(){
-        return new ChequeJdbc();
+    public ChequeJdbcImp getChequeJdbc(){
+        return new ChequeJdbcImp();
     }
     @Bean(name="chequeJdbcTemplate")
-    public ChequeJdbcTemplate getChequeJdbcTemplate(){
-        return new ChequeJdbcTemplate();
+    public ChequeJdbcTemplateImp getChequeJdbcTemplate(){
+        return new ChequeJdbcTemplateImp();
     }
-
+    @Bean(name="chequeHibernate")
+    public ChequeHibernateImp getChequeHibernate(){
+        return new ChequeHibernateImp();
+    }
 
 
 }

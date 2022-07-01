@@ -1,5 +1,6 @@
 package org.dikkulah.service;
 
+import org.dikkulah.dto.EmailDto;
 import org.dikkulah.model.Commercial;
 import org.dikkulah.repository.CommercialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ public class CommercialService {
     @Autowired
     private CommercialRepository commercialRepository;
 
+    @Autowired
+    private RabbitMQService rabbitMQService;
 
     public Commercial createCommercial(Commercial request) {
 
@@ -24,7 +27,8 @@ public class CommercialService {
 //        request.getCheques().add(a);
 //        request.getCheques().add(b);
         //deneme.saveAll(request.getCheques());
-
+        EmailDto mail = new EmailDto("dikkulah@gmail.com","commercial","Kaydınız tamamlandı.");
+        rabbitMQService.sendEmail(mail);
         return commercialRepository.save(request);
     }
 

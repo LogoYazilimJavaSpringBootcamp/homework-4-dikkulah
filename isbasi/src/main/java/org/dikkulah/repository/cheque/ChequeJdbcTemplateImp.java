@@ -1,4 +1,4 @@
-package org.dikkulah.repository;
+package org.dikkulah.repository.cheque;
 
 import org.dikkulah.model.Cheque;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
-public class ChequeJdbcTemplate implements ChequeRepository {
+public class ChequeJdbcTemplateImp implements ChequeRepository {
 
     RowMapper<Cheque> rowMapper = (rs, rowNum) -> {
         Cheque cheque = new Cheque();

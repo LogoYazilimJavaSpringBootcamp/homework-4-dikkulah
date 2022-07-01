@@ -2,8 +2,8 @@ package org.dikkulah.service;
 
 import org.dikkulah.model.Cheque;
 import lombok.extern.slf4j.Slf4j;
-import org.dikkulah.repository.ChequeHibernate;
-import org.dikkulah.repository.ChequeRepository;
+import org.dikkulah.repository.cheque.ChequeHibernateImp;
+import org.dikkulah.repository.cheque.ChequeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ChequeService {
 
     @Autowired
-    @Qualifier(value = "chequeJdbc")
+    @Qualifier(value = "chequeJdbcImp")
     private ChequeRepository jdbc;
 
     @Autowired
@@ -24,7 +24,8 @@ public class ChequeService {
     private ChequeRepository jdbcTemplate;
 
     @Autowired
-    private ChequeHibernate chequeHibernate;
+    @Qualifier(value = "chequeHibernate")
+    private ChequeRepository hibernateImp;
 
 
     public Cheque createCheque(Cheque request) {
@@ -36,25 +37,25 @@ public class ChequeService {
     public List<Cheque> getAllCheques() {
 
 
-        return chequeHibernate.findAll();
+        return null;// chequeHibernateImp.findAll();
     }
 
     public Cheque getChequeById(Integer id) {
-        return null;// chequeHibernate.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return null;// chequeHibernateImp.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     public Cheque updateCheque(Cheque request) {
-       // Cheque foundCheque = chequeHibernate.findById(request.getId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+       // Cheque foundCheque = chequeHibernateImp.findById(request.getId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
 
         //foundCheque.setChequeDate(request.getChequeDate());
         //foundCheque.setTransactionDate(request.getTransactionDate());
-        return null;//chequeHibernate.save(request);
+        return null;//chequeHibernateImp.save(request);
     }
 
     public void deleteChequeById(Integer id) {
-//        chequeHibernate.findById(id).ifPresentOrElse(cheque -> {
-//            chequeHibernate.delete(cheque);
+//        chequeHibernateImp.findById(id).ifPresentOrElse(cheque -> {
+//            chequeHibernateImp.delete(cheque);
 //            throw new ResponseStatusException(HttpStatus.OK);
 //        }, () -> {
 //            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
