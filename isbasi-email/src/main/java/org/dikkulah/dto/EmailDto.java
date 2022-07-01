@@ -15,7 +15,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 public class EmailDto implements Serializable {
-
     @JsonProperty("to")
     private String to;
     @JsonProperty("title")

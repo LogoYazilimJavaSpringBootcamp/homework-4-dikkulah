@@ -10,8 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/commercial")
 public class CommercialController {
-
-
     @Autowired
     private CommercialService commercialService;
     // commercial kayıt etme
@@ -24,31 +22,25 @@ public class CommercialController {
     public List<Commercial> getAllCommercials() {
         return commercialService.getAllCommercials();
     }
-
     //id ile arama
     @GetMapping(value = "/{id}")
     public Commercial getCommercialById(@PathVariable Integer id) {
         return commercialService.getCommercialById(id);
     }
-
     //id ile bulup gönderilen body ile update etme
     @PutMapping
     public Commercial updateCommercial( @RequestBody Commercial request) {
         return commercialService.updateCommercial( request);
     }
-
     // id ile silme
     @DeleteMapping(value = "/{id}")
     public void deleteCommercialById(@PathVariable Integer id) {
-         commercialService.deleteCommercialById(id);
+        commercialService.deleteCommercialById(id);
     }
 
     // aktif- pasif listeleme
-//    @GetMapping(value = "state/{isActive}")
-//    public List<Commercial> getCommercialByIsActive(@PathVariable String isActive) {
-//        return commercialService.getCommercialByIsActive(Boolean.valueOf(isActive));
-//    }
-
-
-
+    @GetMapping(value = "state/{isActive}")
+    public List<Commercial> getCommercialByIsActive(@PathVariable String isActive) {
+        return commercialService.getCommercialByIsActive(Boolean.valueOf(isActive));
+    }
 }

@@ -1,5 +1,6 @@
 package org.dikkulah.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.dikkulah.model.enums.CommercialType;
 import org.dikkulah.model.enums.FirmType;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -53,11 +54,14 @@ public class Commercial { // MÜŞTERİ TEDARİKÇİ
     @OneToMany(mappedBy = "commercial")
     private List<Address> otherAddresses;
 
-
-
     @JsonManagedReference
     @OneToMany(mappedBy = "commercial")
     private List<Cheque> cheques;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private User user;
 
 
 

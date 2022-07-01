@@ -1,34 +1,39 @@
 package org.dikkulah.service;
 
+import org.dikkulah.model.Till;
+import org.dikkulah.repository.jpa.TillJpa;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TillService {
 
-//    @Autowired
-//    private TillRepository tillRepository;
+    @Autowired
+    private TillJpa tillJpa;
 
-  /*  public Till createTill(Till request) {
-        return tillRepository.save(request);
+   public Till createTill(Till request) {
+        return tillJpa.save(request);
     }
 
     public List<Till> getAllTills() {
-        return tillRepository.findAll();
+        return tillJpa.findAll();
     }
 
-    public Till getTillById(Long id) {
-        return tillRepository.finById(id).orElseThrow(RuntimeException::new);
+    public Till getTillById(Integer id) {
+        return tillJpa.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    public Till updateTill(Long id, Till request) {
-        return tillRepository.updateById(id,request);
+    public Till updateTill(Till request) {
+        return tillJpa.save(request);
     }
 
-    public Boolean deleteTillById(Long id) {
-        return tillRepository.deleteById(id);
+    public void deleteTillById(Integer id) {
+         tillJpa.deleteById(id);
     }
 
-    public List<Till> getTillByIsActive(Boolean valueOf) {
-        return tillRepository.finByIsActive(valueOf);
-    }*/
+    public List<Till> getTillsByIsActive(Boolean valueOf) {
+        return tillJpa.findAllByIsActive(valueOf);
+    }
 }

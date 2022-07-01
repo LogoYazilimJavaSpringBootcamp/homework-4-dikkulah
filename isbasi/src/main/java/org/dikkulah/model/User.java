@@ -1,9 +1,11 @@
 package org.dikkulah.model;
 
-import org.dikkulah.model.enums.FirmType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.dikkulah.model.enums.FirmType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Builder
 @Entity
@@ -24,13 +26,15 @@ public class User {
     private FirmType firmType;
 
 
-//    @OneToOne
+    //    @OneToOne
 //    @JoinColumn(name = "address_id")
 //    private Address address;
 //
-//    @OneToMany
-//    private List<Commercial> commercialList;
-//
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<Commercial> commercialList;
+
+
 //    private List<Till> tillList;
 //
 //    @OneToMany(mappedBy = "user")

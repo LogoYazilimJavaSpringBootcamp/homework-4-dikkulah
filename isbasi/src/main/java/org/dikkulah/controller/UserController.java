@@ -1,11 +1,17 @@
 package org.dikkulah.controller;
 
+import org.dikkulah.model.Commercial;
+import org.dikkulah.model.User;
+import org.dikkulah.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
-   /* @Autowired
+    @Autowired
     private UserService userService;
 
     @PostMapping
@@ -26,6 +32,6 @@ public class UserController {
     @GetMapping(value = "/{email}/customers")
     public List<Commercial> getCommercialsByUserEmail(@PathVariable String email) {
         return userService.getCommercialsByUserEmail(email);
-    }*/
+    }
 
 }
