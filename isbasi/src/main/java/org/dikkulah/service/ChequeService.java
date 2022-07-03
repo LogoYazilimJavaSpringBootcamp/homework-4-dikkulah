@@ -2,10 +2,8 @@ package org.dikkulah.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.dikkulah.model.Cheque;
-import org.dikkulah.repository.cheque.ChequeRepository;
 import org.dikkulah.repository.jpa.ChequeJpa;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,25 +12,14 @@ import java.util.List;
 
 @Service
 @Slf4j
-
 public class ChequeService {
 
-    @Autowired
-    @Qualifier(value = "chequeJdbcImp")
-    private ChequeRepository jdbc;
-
-    @Autowired
-    @Qualifier(value = "chequeJdbcTemplate")
-    private ChequeRepository jdbcTemplate;
-
-    @Autowired
-    @Qualifier(value = "chequeHibernate")
-    private ChequeRepository hibernateImp;
 
     @Autowired
     private ChequeJpa chequeJpa;
 
     public Cheque createCheque(Cheque request) {
+
         return chequeJpa.save(request);
     }
 

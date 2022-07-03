@@ -14,6 +14,8 @@ public class UserService {
     private UserJpa userJpa;
 
     public User createUser(User userRequest) {
+        userRequest.getCommercialList().forEach(commercial -> commercial.setUser(userRequest));
+
         return userJpa.save(userRequest);
     }
 

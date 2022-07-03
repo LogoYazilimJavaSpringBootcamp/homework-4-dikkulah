@@ -1,4 +1,4 @@
-package org.dikkulah.model;
+package org.dikkulah2.model;
 
 
 import javax.persistence.Column;

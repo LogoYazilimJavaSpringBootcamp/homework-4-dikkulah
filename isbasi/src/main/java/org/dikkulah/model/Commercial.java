@@ -1,10 +1,10 @@
 package org.dikkulah.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.dikkulah.model.enums.CommercialType;
-import org.dikkulah.model.enums.FirmType;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.dikkulah.model.enums.CommercialType;
+import org.dikkulah.model.enums.FirmType;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -22,10 +22,8 @@ public class Commercial { // MÜŞTERİ TEDARİKÇİ
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-
     @Enumerated(EnumType.STRING)
     private CommercialType commercialType;
-
     private String name; // bireysel
     private String surname; // bireysel
     private String title;
@@ -43,19 +41,19 @@ public class Commercial { // MÜŞTERİ TEDARİKÇİ
     private Boolean isStoppage;
     private Boolean isAdditionalTax;
     @JsonManagedReference
-    @OneToMany(mappedBy = "commercial")
+    @OneToMany(mappedBy = "commercial",cascade = CascadeType.ALL)
     private List<Contact> contacts;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "commercial")
+    @OneToMany(mappedBy = "commercial",cascade = CascadeType.ALL)
     private List<Person> relatedPersons;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "commercial")
+    @OneToMany(mappedBy = "commercial",cascade = CascadeType.ALL)
     private List<Address> otherAddresses;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "commercial")
+    @OneToMany(mappedBy = "commercial", cascade = CascadeType.ALL)
     private List<Cheque> cheques;
 
     @JsonBackReference

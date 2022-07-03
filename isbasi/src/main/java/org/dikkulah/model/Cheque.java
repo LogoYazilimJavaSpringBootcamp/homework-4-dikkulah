@@ -14,11 +14,9 @@ import java.sql.Date;
 @Entity
 @Table(name = "cheques")
 public class Cheque { //ÇEK
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "commercial_id",referencedColumnName = "id")
@@ -26,7 +24,6 @@ public class Cheque { //ÇEK
     private Double price;
     private Date transactionDate;
     private Date chequeDate;
-
 
 //    @ManyToOne
 //    @JoinColumn(name = "user_id",referencedColumnName = "id")

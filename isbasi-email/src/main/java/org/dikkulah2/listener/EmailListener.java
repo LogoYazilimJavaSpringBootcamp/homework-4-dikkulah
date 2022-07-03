@@ -1,9 +1,9 @@
-package org.dikkulah.listener;
+package org.dikkulah2.listener;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.dikkulah.dto.EmailDto;
-import org.dikkulah.repository.EmailRepository;
+import org.dikkulah2.dto.EmailDto;
+import org.dikkulah2.repository.EmailRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

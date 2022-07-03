@@ -1,4 +1,4 @@
-package org.dikkulah;
+package org.dikkulah2;
 
 
 import org.springframework.boot.SpringApplication;
@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class IsbasiEmailServiceApplication {
+public class IsbasiEmailApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IsbasiEmailServiceApplication.class, args);
+		SpringApplication.run(IsbasiEmailApplication.class, args);
 
 
 	}

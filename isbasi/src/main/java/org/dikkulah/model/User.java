@@ -31,7 +31,7 @@ public class User {
 //    private Address address;
 //
     @JsonManagedReference
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Commercial> commercialList;
 
 

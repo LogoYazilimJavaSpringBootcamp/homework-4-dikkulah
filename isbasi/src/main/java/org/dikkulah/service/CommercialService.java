@@ -21,6 +21,7 @@ public class CommercialService {
         EmailDto mail = new EmailDto("dikkulah@gmail.com","commercial","Kaydınız tamamlandı.");
         rabbitMQService.sendEmail(mail);
 
+        request.getCheques().forEach(cheque -> cheque.setCommercial(request));
         return commercialJpa.save(request);
     }
 

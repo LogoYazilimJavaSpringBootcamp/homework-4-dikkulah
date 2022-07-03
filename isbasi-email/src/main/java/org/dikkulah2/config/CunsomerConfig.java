@@ -1,4 +1,4 @@
-package org.dikkulah.config;
+package org.dikkulah2.config;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

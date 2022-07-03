@@ -1,7 +1,6 @@
-package org.dikkulah.repository;
+package org.dikkulah2.repository;
 
-import org.dikkulah.dto.EmailDto;
-import org.dikkulah.model.Email;
+import org.dikkulah2.dto.EmailDto;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface EmailRepository extends MongoRepository<EmailDto,Integer> {

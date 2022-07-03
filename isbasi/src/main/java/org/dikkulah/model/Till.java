@@ -4,6 +4,7 @@ package org.dikkulah.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 @Getter
 @Setter
@@ -18,8 +19,8 @@ public class Till {//KASA
     private Integer id;
     private String name;
     private String currency;
-    private Long openingBalance;
-    private LocalDate openingBalanceDate;
+    private Double openingBalance;
+    private Date openingBalanceDate;
     private Boolean isActive;
 
 
