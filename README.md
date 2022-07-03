@@ -15,6 +15,7 @@
    6. JDBC, SQLException gibi kontrol edilen istisnalar oluşturduğundan, bunu bir try-catch bloğuna yazmalıyız. Öte yandan, JPA çerçevesi yalnızca Hibernate gibi denetlenmeyen istisnalar kullanır . Bu nedenle, kullandığımız her yerde onları yakalamamız veya bildirmemiz gerekmez.
    7. JDBC'nin JPA'ya göre en belirgin yararı, anlaşılmasının daha kolay olmasıdır . Öte yandan, bir geliştirici JPA çerçevesinin veya veritabanı tasarımının iç işleyişini kavraymazsa, iyi kod yazamaz .
    8. Geliştiriciler için JPA'nın JDBC'ye göre ana avantajı, Java uygulamalarını, veritabanı semantiği hakkında endişelenmeden nesne yönelimli ilkeleri ve en iyi uygulamaları kullanarak kodlayabilmeleridir.
+   9. Jdbc template yine Jdbcyi kullanır ve Kısa ,anlaşılır hale getirir.
 3. Aşağıdaki kavramları örneklerle açıklayın ve hangi problemi nasıl çözdüklerini anlatan bir makale yazın.(Medium’da
    paylaşıp linkini koyabilirsiniz.) (10 Puan)
    * Medium yazısı-> [Medium](https://medium.com/@dikkulah/mongodb-coucbase-redis-eb23071c2d05 )
